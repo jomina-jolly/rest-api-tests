@@ -1,0 +1,8 @@
+setup.py
+src/__init__.py
+src/utilites/__init__.py
+src/utilites/genericUtilities.py
+web_api_tests.egg-info/PKG-INFO
+web_api_tests.egg-info/SOURCES.txt
+web_api_tests.egg-info/dependency_links.txt
+web_api_tests.egg-info/top_level.txt
