@@ -1,5 +1,6 @@
 import requests
-from src.configs.hosts_config import API_HOSTS, API_KEYS
+from src.configs.hosts_config import API_HOSTS
+from src.utilites.credentialUtilities import CredentialUtilites
 import os
 import json
 from requests_oauthlib import OAuth1
@@ -10,8 +11,11 @@ class RequestsUtilites():
     def __init__(self) -> None:
         self.env = os.environ.get('ENV', "test")
         self.base_url = API_HOSTS[self.env]
-        self.auth = OAuth1("ck_2f470547a4ab1feefadf26049469580bb2f518af", "cs_0d21cad3a14073214a373047cbef8696bf172591")
-        # import pdb; pdb.set_trace()
+
+        api_credentials = CredentialUtilites.get_wc_api_keys()
+        API_KEY = api_credentials['wc_key']
+        API_SECRET = api_credentials['wc_secret']
+        self.auth = OAuth1("API_KEY", "API_SECRET")
 
     def assert_status_code(self):
         assert self.expected_status_code == self.assert_status_code, \
