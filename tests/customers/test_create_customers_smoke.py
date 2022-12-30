@@ -2,8 +2,9 @@ import pytest
 import logging as logger
 from src.utilites.genericUtilities import generate_random_email_and_password
 from src.helpers.customers_helper import CustomerHelper
+from src.dao.customers_dao import CustomerDAO
 
-pytest.mark.tcid29
+pytest.mark.tcid1
 def test_create_customer_email_passowrd_only():
 
     logger.info("TEST: Create customer with email and password only")
@@ -23,11 +24,14 @@ def test_create_customer_email_passowrd_only():
 
     #verify email id in response
     assert customer_api_info['email'] == email, "Customer API returned wrong email id"
-    import pdb; pdb.set_trace()
     
-    #verify status call
-
-    #verify email id in response
-
     #verify in DB
+    dao_helper = CustomerDAO()
+    resp_dic = dao_helper.get_customer_by_email(email)
 
+    #Check if the IDs are same
+    id_api_resp = customer_api_info['id']
+    id_db_resp = resp_dic[0]['ID']
+
+    assert id_api_resp == id_db_resp, f"IDs in the API and DB are different \n \
+        Email : {email}"
