@@ -4,11 +4,7 @@ API_HOSTS = {
     "prod" : ""
 }
 
-DB_HOST = {
-
-}
-
-API_KEYS = {
-    'client_key' : "ck_2f470547a4ab1feefadf26049469580bb2f518af",
-    'client_secret' : "cs_0d21cad3a14073214a373047cbef8696bf172591"
+DB_DETAILS = {
+    "HOST" : "127.0.0.1",
+    "PORT" : 8889
 }
