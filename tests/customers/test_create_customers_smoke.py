@@ -3,6 +3,7 @@ import logging as logger
 from src.utilites.genericUtilities import generate_random_email_and_password
 from src.helpers.customers_helper import CustomerHelper
 from src.dao.customers_dao import CustomerDAO
+from src.utilites.requestUtilities import RequestsUtilites
 
 pytest.mark.tcid1
 def test_create_customer_email_passowrd_only():
@@ -35,3 +36,29 @@ def test_create_customer_email_passowrd_only():
 
     assert id_api_resp == id_db_resp, f"IDs in the API and DB are different \n \
         Email : {email}"
+
+
+@pytest.mark.tcid3
+def test_create_customer_fail_existing_email():
+    #Get exisiting email id from DB
+
+    dao_helper = CustomerDAO()
+    list_of_users = dao_helper.get_random_customer(1)
+    email = list_of_users[0]['user_email']
+
+    #Set a random password
+    password = "Qwerty@1234"
+
+    #Create user with the email obtained
+    request_helper = RequestsUtilites()
+
+    payload = {}
+    payload['email'] = email
+    payload['password'] = password
+    customer_api_info = request_helper.post(endpoint="/wp-json/wc/v3/customers", payload=payload, expected_status_code=400)
+
+    expected_err_code = "registration-error-email-exists"
+    #Check for the error message
+    assert customer_api_info['code'] == expected_err_code, f"Error code is not as expected. \
+        Expected: {expected_err_code}"
+    import pdb; pdb.set_trace()
