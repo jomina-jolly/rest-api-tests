@@ -7,11 +7,13 @@ from src.dao.customers_dao import CustomerDAO
 
 @pytest.mark.tcid2
 def test_get_customers():
+    #Just checking if the response is empty of not. Depending on the size of the application, you may add new checks for testing the API\
+    #eg, check with pagination (which is not included here)
 
     #Call get customers API
     request_helper = RequestsUtilites()
 
-    endpoint = "/wp-json/wc/v3/customers"
+    endpoint = "customers"
     api_resp = request_helper.get(endpoint=endpoint)
 
     #Check if the response size is not empty

@@ -10,7 +10,7 @@ class RequestsUtilites():
 
     def __init__(self) -> None:
         self.env = os.environ.get('ENV', "test")
-        self.base_url = API_HOSTS[self.env]
+        self.base_url = API_HOSTS[self.env] + "/wp-json/wc/v3/"
 
         api_credentials = CredentialUtilites.get_wc_api_keys()
         API_KEY = api_credentials['wc_key']

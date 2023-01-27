@@ -19,6 +19,6 @@ class CustomerHelper():
         payload['password'] = password
         payload.update(kwarg)
 
-        create_customers_resp = self.request_utility.post(endpoint="/wp-json/wc/v3/customers", payload=payload, expected_status_code=201)
+        create_customers_resp = self.request_utility.post(endpoint="customers", payload=payload, expected_status_code=201)
         return create_customers_resp
 

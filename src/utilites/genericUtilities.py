@@ -23,3 +23,7 @@ def generate_random_email_and_password(domain=None, prefix=None):
     print (random_info)
     return random_info
 
+def generate_generic_name(length=6):
+
+    random_str = "".join(random.choices(string.ascii_letters, k=length))
+    return random_str

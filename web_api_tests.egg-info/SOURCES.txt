@@ -1,7 +1,12 @@
 setup.py
 src/__init__.py
+src/configs/__init__.py
+src/configs/hosts_config.py
+src/helpers/__init__.py
+src/helpers/customers_helper.py
 src/utilites/__init__.py
 src/utilites/genericUtilities.py
+src/utilites/requestUtilities.py
 web_api_tests.egg-info/PKG-INFO
 web_api_tests.egg-info/SOURCES.txt
 web_api_tests.egg-info/dependency_links.txt
