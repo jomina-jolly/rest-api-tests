@@ -58,3 +58,15 @@ class WooCommerceAPI():
         self.assert_status_code()
 
         return rs_api_json
+    
+    def put(self, endpoint, params=None, expected_status_code=200):
+        self.expected_status_code = expected_status_code
+
+        rs_api = self.wcapi.put(endpoint, data=params)
+        self.status_code = rs_api.status_code
+        rs_api_json = rs_api.json()
+        
+        #Assert the status code
+        self.assert_status_code()
+
+        return rs_api_json

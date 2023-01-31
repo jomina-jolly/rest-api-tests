@@ -49,3 +49,8 @@ class OrderHelper():
         db_product_ids = map(int, _db_product_ids)
         assert set(rs_api_product_ids) == set(db_product_ids), f"The product ids in DB differs from the API response \n \
             Expected : {expected_product_ids}, API response: {rs_api_product_ids}, DB response: {db_product_ids}"
+
+    def call_retrieve_order_details(self, order_id):
+        endpoint = f"orders/{order_id}"
+        rs_order_details = self.woo_helper.get(endpoint=endpoint)
+        return rs_order_details
