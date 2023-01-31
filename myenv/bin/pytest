@@ -1,4 +1,4 @@
-#!/Users/jomina/Documents/Python/workbook/web_api_tests/myenv/bin/python3.9
+#!/Users/jomina/Documents/Python/workbook/web_api_tests/myenv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

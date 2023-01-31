@@ -13,8 +13,6 @@ pytestmark = [pytest.mark.orders]
                             ])
 def test_update_order_status(new_status):
 
-    new_status = "cancelled"
-
     #Create order
     order_helper = OrderHelper()
     woocommerce_api = WooCommerceAPI()
