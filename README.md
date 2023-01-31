@@ -11,3 +11,18 @@ https://woocommerce.github.io/woocommerce-rest-api-docs/?shell#introduction
 The project is intended to show some working examples for commonly used pytest freatures like marks, fixtures, paramatrize, etc
 
 The API response is validated with the data in the DB.
+
+Steps:
+Modules to install:
+  pip install pytest
+Then from the main directory, run
+  python setup.py develop
+  
+ The tests are written in the tests folder.
+ 
+ To run tests
+ Run the tests
+   pytest -m <the currosponding marker name>
+   eg: pytest -m tcid10       
+   eg: pytest -m orders       #This runs all the tests with orders marker.
+   
