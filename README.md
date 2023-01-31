@@ -14,15 +14,15 @@ The API response is validated with the data in the DB.
 
 Steps:
 Modules to install:
-  pip install pytest
+    pip install pytest
 Then from the main directory, run
-  python setup.py develop
+    python setup.py develop
   
  The tests are written in the tests folder.
  
 Run tests from the main directory
 To run the tests
-   pytest -m <the currosponding marker name>
+   pytest -m <corrosponding_marker_name>
    eg: pytest -m tcid10       
-   eg: pytest -m orders       #This runs all the tests with orders marker.
+   eg: pytest -m orders       # This runs all the tests with orders marker.
    
