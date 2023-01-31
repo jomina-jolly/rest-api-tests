@@ -20,8 +20,8 @@ Then from the main directory, run
   
  The tests are written in the tests folder.
  
- To run tests
- Run the tests
+Run tests from the main directory
+To run the tests
    pytest -m <the currosponding marker name>
    eg: pytest -m tcid10       
    eg: pytest -m orders       #This runs all the tests with orders marker.
